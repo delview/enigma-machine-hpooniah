@@ -44,37 +44,46 @@ phone_charcters_encrypt = {
 
 
 # decrypt function 
+def decrypt(message):
+    decrypted = []
 
 # Encrypt function
+def encrypt(message):
+  encrypted = []
+  
 
 # Greet the user
 print("Hello, This is a phone chraracter cipher program")
 name = input("Before we begin, what is your name? ")
 print(f"Hello {name} lets get started")
 
+def start_agian():
+    # Ask if they want to decrypt or encrypt a message.
+    choice = input("Would you like to [d]ecrypt or [e]ncrypt a message? ").strip().lower()
 
-# Ask if they want to decrypt or encrypt a message.
-choice = input("Would you like to [d]ecrypt or [e]ncrypt a message? ").strip().lower()
+    # Decrypt the message
+    while True: 
+        if choice == "d":
+            message = input("Enter the message you would like to decrypt: ")
 
-# Call the function based on the users choice
+        # Encrypt the message
+        if choice == "e":
+            message = input("Enter the message you would like to encrypt: ")
 
-# Decrypt the message
-while True: 
-    if choice == "d":
-        message = input("Enter the message you would like to decrypt: ")
+        # Invalid choice
+        else:
+            print("Invalid choice, Please enter 'd' or 'e'. ")
 
-    # Encrypt the message
-    if choice == "e":
-        message = input("Enter the message you would like to encrypt: ")
+    # Print the decripted message 
 
-    # Invalid choice
-    else:
-        print("Invalid choice, Please enter 'd' or 'e'. ")
+    # Print the encrypted message
 
-# Print the decripted message 
-
-# Print the encrypted message
-
-# Ask the user if thye want to decrypt or encrypt another message.
-
-# write a goodbye message
+    # Ask the user if thye want to decrypt or encrypt another message. If not write a goodbye message and exit the program
+        while True:
+            #Ask the user if they want to play again
+                play_again = input("\nWould you like to decrypt or encrypt another message? [y/n] ").lower()
+                if play_again == "n":
+                    print("Thank you for using this website for your dinner invitation!")
+                    exit()
+                elif play_again == "y":
+                    start_agian()
