@@ -65,26 +65,16 @@ phone_charcters_encrypt = {
 def decrypt(message):
     decrypted = []
 
-
 # Encrypt function
 def encrypt(message):
     encrypted = []
 
 
-
-
-# Greet the user
-print("Hello, This is a phone chraracter cipher program")
-name = input("Before we begin, what is your name? ")
-print(f"Hello {name} lets get started")
-
 def start_agian():
-    # Ask if they want to decrypt or encrypt a message.
-    choice = (input("Would you like to [d]ecrypt or [e]ncrypt a message? ").strip().lower())
-    if choice != "d" or choice != "e":
-            print("Invalid input. Please enter 'd' for decrypt or 'e' encrypt a message?")
-            start_agian()
-    while True: 
+    while True:
+        # Ask if they want to decrypt or encrypt a message.
+        choice = (input("Would you like to [d]ecrypt or [e]ncrypt a message? ").strip().lower())
+
         # Decrypt the message
         if choice == "d":
             message = input("Enter the message you would like to decrypt: ")
@@ -99,16 +89,18 @@ def start_agian():
         else:
             print("Invalid choice, Please enter 'd' or 'e'. ")
             continue
+        
+        play_again = input("Would you like to encrypt or decrypt another message? (y/n): ").strip().lower()
+        if play_again == "n":
+            print("Thank you for using the Phone Character Cipher program. Goodbye!")
+            break
+        else: 
+            print("Invalid choice, Please enter 'y' or 'n'. ")
+            continue
 
-    # Ask the user if thye want to decrypt or encrypt another message. If not write a goodbye message and exit the program
-        while True:
-            #Ask the user if they want to play again
-                play_again = input("\nWould you like to decrypt or encrypt another message? [y/n] ").lower()
-                if play_again == "n":
-                    print("Thank you for using this website for your dinner invitation!")
-                    exit()
-                elif play_again == "y":
-                    start_agian()
-                else: 
-                    print("Invalid choice, Please enter 'y' or 'n'. ")
-                    continue
+# Greet the user
+print("Hello, This is a phone chraracter cipher program")
+name = input("Before we begin, what is your name? ")
+print(f"Hello {name} lets get started")
+
+start_agian()
