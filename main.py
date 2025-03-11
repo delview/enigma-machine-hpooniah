@@ -47,10 +47,11 @@ phone_charcters_encrypt = {
 def decrypt(message):
     decrypted = []
 
+
 # Encrypt function
 def encrypt(message):
-  encrypted = []
-  
+    encrypted = []
+
 
 # Greet the user
 print("Hello, This is a phone chraracter cipher program")
@@ -61,22 +62,21 @@ def start_agian():
     # Ask if they want to decrypt or encrypt a message.
     choice = input("Would you like to [d]ecrypt or [e]ncrypt a message? ").strip().lower()
 
-    # Decrypt the message
     while True: 
+        # Decrypt the message
         if choice == "d":
             message = input("Enter the message you would like to decrypt: ")
+            print(f"Decrypted message: {decrypt(message)}")
 
         # Encrypt the message
-        if choice == "e":
+        elif choice == "e":
             message = input("Enter the message you would like to encrypt: ")
+            print(f"Encrypted message: {encrypt(message)}")
 
         # Invalid choice
         else:
             print("Invalid choice, Please enter 'd' or 'e'. ")
-
-    # Print the decripted message 
-
-    # Print the encrypted message
+            continue
 
     # Ask the user if thye want to decrypt or encrypt another message. If not write a goodbye message and exit the program
         while True:
@@ -87,3 +87,6 @@ def start_agian():
                     exit()
                 elif play_again == "y":
                     start_agian()
+                else: 
+                    print("Invalid choice, Please enter 'y' or 'n'. ")
+                    continue
