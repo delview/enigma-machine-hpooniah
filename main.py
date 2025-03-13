@@ -1,8 +1,8 @@
 # Start Enigma Machine
 
-# Phone charcters matching
+# Phone characters matching
 
-phone_charcters_decrypt = {
+phone_characters_decrypt = {
 "2": "A",
 "22": "B",
 "222": "C",
@@ -31,7 +31,7 @@ phone_charcters_decrypt = {
 "9999": "Z"
 }
 
-phone_charcters_encrypt = {
+phone_characters_encrypt = {
 "A": "2",
 "B": "22",
 "C": "222",
@@ -67,33 +67,33 @@ def decrypt(message):
     # Divids the message into parts and does each part one by one
     for char in message.split():
         # Check if the part is in the decrypt dictionary
-        if char in phone_charcters_decrypt:
+        if char in phone_characters_decrypt:
             # Decrypt the message from the dictionary
-            decrypted.append(phone_charcters_decrypt[char])
+            decrypted.append(phone_characters_decrypt[char])
         else:
             # If message is not in the dictionary it is invalid
             print('This message is not valid')
             return decrypt(input("Please enter a valid message to decrypt: "))
-    # Combinds all the letter and return the message
+    # Combines all the letters and returns the message
     return ''.join(decrypted)
 
 # Encrypt function
 def encrypt(message):
     encrypted = []
-    # Make the letters uppdercase becuase the dictionary is in uppercase 
+    # Make the letters uppercase because the dictionary is in uppercase 
     for char in message.upper():
         # Check if the message is in the encrypt dictionary
-        if char in phone_charcters_encrypt:
+        if char in phone_characters_encrypt:
             # Encrypt the message from the dictionary
-            encrypted.append(phone_charcters_encrypt[char])
+            encrypted.append(phone_characters_encrypt[char])
         else:
             # If message is not in the dictionary it is invalid
             print('This message is not valid')
             return decrypt(input("Please enter a valid message to decrypt: "))
-    # Compinds all the numbers and return the message
+    # Combines all the numbers and returns the message
     return ' '.join(encrypted)
 
-def start_agian():
+def start_again():
     while True:
         # Ask if they want to decrypt or encrypt a message.
         choice = (input("Would you like to [d]ecrypt or [e]ncrypt a message? ").strip().lower())
@@ -119,15 +119,15 @@ def start_agian():
                 print("Thank you for using the Phone Character Cipher program. Goodbye!")
                 break
             elif play_again == "y":
-                start_agian()
+                start_again()
             else: 
                 print("Invalid choice, Please enter 'y' or 'n'. ")
                 continue
 
 
 # Greet the user
-print("Hello, This is a phone chraracter cipher program")
+print("Hello, This is a phone character cipher program")
 name = input("Before we begin, what is your name? ")
 print(f"Hello {name} lets get started")
 
-start_agian()
+start_again()
