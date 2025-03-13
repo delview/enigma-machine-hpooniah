@@ -89,7 +89,7 @@ def encrypt(message):
         else:
             # If message is not in the dictionary it is invalid
             print('This message is not valid')
-            return decrypt(input("Please enter a valid message to decrypt: "))
+            return encrypt(input("Please enter a valid message to encrypt: "))
     # Combines all the numbers and returns the message
     return ' '.join(encrypted)
 
