@@ -64,15 +64,34 @@ phone_charcters_encrypt = {
 # Decrypt function 
 def decrypt(message):
     decrypted = []
-    
-
+    # Divids the message into parts and does each part one by one
+    for char in message.split():
+        # Check if the part is in the decrypt dictionary
+        if char in phone_charcters_decrypt:
+            # Decrypt the message from the dictionary
+            decrypted.append(phone_charcters_decrypt[char])
+        else:
+            # If message is not in the dictionary it is invalid
+            print('This message is not valid')
+            decrypt()
+    # Combinds all the letter and return the message
+    return ''.join(decrypted)
 
 # Encrypt function
 def encrypt(message):
     encrypted = []
-
-
-
+    # Make the letters uppdercase becuase the dictionary is in uppercase 
+    for char in message.upper():
+        # Check if the message is in the encrypt dictionary
+        if char in phone_charcters_encrypt:
+            # Encrypt the message from the dictionary
+            encrypted.append(phone_charcters_encrypt[char])
+        else:
+            # If message is not in the dictionary it is invalid
+            encrypted.append('This message is not valid')
+            encrypt()
+    # Compinds all the numbers and return the message
+    return ' '.join(encrypted)
 
 def start_agian():
     while True:
@@ -94,13 +113,17 @@ def start_agian():
             print("Invalid choice, Please enter 'd' or 'e'. ")
             continue
 
-        play_again = input("Would you like to encrypt or decrypt another message? (y/n): ").strip().lower()
-        if play_again == "n":
-            print("Thank you for using the Phone Character Cipher program. Goodbye!")
-            break
-        else: 
-            print("Invalid choice, Please enter 'y' or 'n'. ")
-            continue
+        while True:
+            play_again = input("Would you like to encrypt or decrypt another message? (y/n): ").strip().lower()
+            if play_again == "n":
+                print("Thank you for using the Phone Character Cipher program. Goodbye!")
+                break
+            elif play_again == "y":
+                start_agian()
+            else: 
+                print("Invalid choice, Please enter 'y' or 'n'. ")
+                continue
+
 
 # Greet the user
 print("Hello, This is a phone chraracter cipher program")
