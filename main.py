@@ -73,7 +73,7 @@ def decrypt(message):
         else:
             # If message is not in the dictionary it is invalid
             print('This message is not valid')
-            decrypt()
+            return decrypt(input("Please enter a valid message to decrypt: "))
     # Combinds all the letter and return the message
     return ''.join(decrypted)
 
@@ -88,8 +88,8 @@ def encrypt(message):
             encrypted.append(phone_charcters_encrypt[char])
         else:
             # If message is not in the dictionary it is invalid
-            encrypted.append('This message is not valid')
-            encrypt()
+            print('This message is not valid')
+            return decrypt(input("Please enter a valid message to decrypt: "))
     # Compinds all the numbers and return the message
     return ' '.join(encrypted)
 
