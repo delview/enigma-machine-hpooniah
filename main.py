@@ -64,7 +64,7 @@ phone_characters_encrypt = {
 # Decrypt function 
 def decrypt(message):
     decrypted = []
-    # Divids the message into parts and does each part one by one
+    # Divides the message into parts and does each part one by one
     for char in message.split():
         # Check if the part is in the decrypt dictionary
         if char in phone_characters_decrypt:
@@ -73,7 +73,8 @@ def decrypt(message):
         else:
             # If message is not in the dictionary it is invalid
             print('This message is not valid')
-            return decrypt(input("Please enter a valid message to decrypt: "))
+            message = input("Please enter a valid message to decrypt: ")
+            return decrypt(message)
     # Combines all the letters and returns the message
     return ''.join(decrypted)
 
@@ -89,7 +90,8 @@ def encrypt(message):
         else:
             # If message is not in the dictionary it is invalid
             print('This message is not valid')
-            return encrypt(input("Please enter a valid message to encrypt: "))
+            message = input("Please enter a valid message to encrypt: ")
+            return encrypt(message)
     # Combines all the numbers and returns the message
     return ' '.join(encrypted)
 
@@ -110,24 +112,25 @@ def start_again():
 
         # Invalid choice
         else:
-            print("Invalid choice, Please enter 'd' or 'e'. ")
+            print("Invalid choice, please enter 'd' or 'e'. ")
             continue
-
+        
+        # Ask if they want to play again
         while True:
             play_again = input("Would you like to encrypt or decrypt another message? (y/n): ").strip().lower()
             if play_again == "n":
                 print("Thank you for using the Phone Character Cipher program. Goodbye!")
-                break
+                exit()
             elif play_again == "y":
-                start_again()
+                break
             else: 
-                print("Invalid choice, Please enter 'y' or 'n'. ")
+                print("Invalid choice, please enter 'y' or 'n'. ")
                 continue
 
 
 # Greet the user
 print("Hello, This is a phone character cipher program")
 name = input("Before we begin, what is your name? ")
-print(f"Hello {name} lets get started")
+print(f"Hello {name} let's get started")
 
 start_again()
