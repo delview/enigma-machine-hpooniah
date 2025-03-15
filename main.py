@@ -63,37 +63,41 @@ phone_characters_encrypt = {
 
 # Decrypt function 
 def decrypt(message):
-    decrypted = []
-    # Divides the message into parts and does each part one by one
-    for char in message.split():
-        # Check if the part is in the decrypt dictionary
-        if char in phone_characters_decrypt:
-            # Decrypt the message from the dictionary
-            decrypted.append(phone_characters_decrypt[char])
+    while True:
+        decrypted = []
+        # Divides the message into parts and does each part one by one
+        for char in message.split():
+            # Check if the part is in the decrypt dictionary
+            if char in phone_characters_decrypt:
+                # Decrypt the message from the dictionary
+                decrypted.append(phone_characters_decrypt[char])
+            else:
+                # If message is not in the dictionary it is invalid
+                print('This message is not valid')
+                message = input("Please enter a valid message to decrypt: ").strip()
+                break
+        # Combines all the letters and returns the message
         else:
-            # If message is not in the dictionary it is invalid
-            print('This message is not valid')
-            message = input("Please enter a valid message to decrypt: ")
-            return decrypt(message)
-    # Combines all the letters and returns the message
-    return ''.join(decrypted)
+            return ''.join(decrypted)
 
 # Encrypt function
 def encrypt(message):
-    encrypted = []
-    # Make the letters uppercase because the dictionary is in uppercase 
-    for char in message.upper():
-        # Check if the message is in the encrypt dictionary
-        if char in phone_characters_encrypt:
-            # Encrypt the message from the dictionary
-            encrypted.append(phone_characters_encrypt[char])
+    while True:
+        encrypted = []
+        # Make the letters uppercase because the dictionary is in uppercase 
+        for char in message.upper():
+            # Check if the message is in the encrypt dictionary
+            if char in phone_characters_encrypt:
+                # Encrypt the message from the dictionary
+                encrypted.append(phone_characters_encrypt[char])
+            else:
+                # If message is not in the dictionary it is invalid
+                print('This message is not valid')
+                message = input("Please enter a valid message to encrypt: ").strip()
+                break
+        # Combines all the numbers and returns the message
         else:
-            # If message is not in the dictionary it is invalid
-            print('This message is not valid')
-            message = input("Please enter a valid message to encrypt: ")
-            return encrypt(message)
-    # Combines all the numbers and returns the message
-    return ' '.join(encrypted)
+            return ' '.join(encrypted)
 
 def start_again():
     while True:
@@ -129,8 +133,8 @@ def start_again():
 
 
 # Greet the user
-print("Hello, This is a phone character cipher program")
+print("Hello! This is a phone character cipher program")
 name = input("Before we begin, what is your name? ")
-print(f"Hello {name} let's get started")
+print(f"Hello {name}! let's get started")
 
 start_again()
